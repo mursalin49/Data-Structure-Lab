@@ -1,5 +1,5 @@
 
-#include <stdio.h> //r
+#include <stdio.h> 
 int main()
 {
   int array[100], search, c, n;
