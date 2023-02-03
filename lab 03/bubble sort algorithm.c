@@ -1,47 +1,38 @@
 
-// Bubble sort in C
+#include<stdio.h>
 
-#include <stdio.h>
+void BubbleShort(int array[],int size){
+    int temp;
 
-// perform the bubble sort
-void bubbleSort(int array[], int size) {
+    for(int i=0;i<size-1;i++){
+        for(int j=0;j<size-i-1;j++){
+            if(array[j]>array[j+1]){
+                temp=array[j];
+                array[j]=array[j+1];
+                array[j+1]=temp;
+            }
 
-  // loop to access each array element
-  for (int step = 0; step < size - 1; ++step) {
-
-    // loop to compare array elements
-    for (int i = 0; i < size - step - 1; ++i) {
-
-      // compare two adjacent elements
-      // change > to < to sort in descending order
-      if (array[i] > array[i + 1]) {
-
-        // swapping occurs if elements
-        // are not in the intended order
-        int temp = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = temp;
-      }
+        }
     }
-  }
+
 }
 
-// print array
-void printArray(int array[], int size) {
-  for (int i = 0; i < size; ++i) {
-    printf("%d  ", array[i]);
-  }
-  printf("\n");
-}
+int main(){
+    int size;
+    printf("Enter Array Size:");
+    scanf("%d",&size);
+    int array[size];
+    printf("Enter Array Values :\n");
 
-int main() {
-  int data[] = {10, 20, 12, 15, 5,8,6,9};
+    for(int i=0;i<size;i++){
+        scanf("%d",&array[i]);
+    }
+    BubbleShort(array,size);
 
-  // find the array's length
-  int size = sizeof(data) / sizeof(data[0]);
+    for(int j=0;j<size;j++){
+        printf("%d  ",array[j]);
+    }
 
-  bubbleSort(data, size);
 
-  printf("Sorted Array in Ascending Order:\n");
-  printArray(data, size);
+    return 0;
 }
